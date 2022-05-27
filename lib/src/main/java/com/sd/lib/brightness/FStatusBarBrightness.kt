@@ -28,4 +28,24 @@ class FStatusBarBrightness : FStackTop<FStatusBarBrightness.Item>(), FItemHolder
 
     override fun close() {
     }
+
+    companion object {
+        @JvmStatic
+        fun newLightItem(): Item {
+            return object : Item {
+                override fun isLightStatusBar(): Boolean {
+                    return true
+                }
+            }
+        }
+
+        @JvmStatic
+        fun newDarkItem(): Item {
+            return object : Item {
+                override fun isLightStatusBar(): Boolean {
+                    return false
+                }
+            }
+        }
+    }
 }
